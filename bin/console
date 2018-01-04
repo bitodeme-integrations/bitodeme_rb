@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'dotenv/load'
+require 'bundler/setup'
+require 'bitodeme'
+require 'pry'
+
+Pry.start
