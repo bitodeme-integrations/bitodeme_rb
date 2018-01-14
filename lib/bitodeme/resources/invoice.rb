@@ -110,12 +110,18 @@ module Bitodeme
 
         private
 
+        def unauthorized_conn
+          Bitodeme::UnauthorizedConn.build
+        end
+
         def raise_for(attr, val)
           raise Bitodeme::ValidationError.new(attr, val)
         end
       end
 
       private
+
+      def_delegators :unauthorized_conn, :get
 
       def initialize(params)
         super(attrs: attrs, params: params)

@@ -48,9 +48,17 @@ module Bitodeme
         def all(options = {})
           _all('currencies', options)
         end
+
+        private
+
+        def unauthorized_conn
+          Bitodeme::UnauthorizedConn.build
+        end
       end
 
       private
+
+      def_delegators :unauthorized_conn, :get
 
       def initialize(params)
         super(attrs: attrs, params: params)
