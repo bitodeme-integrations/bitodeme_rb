@@ -17,7 +17,6 @@ module Bitodeme
       Faraday.new(faraday_opts) do |conn|
         conn.request  :json
         conn.response :json, content_type: /\bjson$/
-        conn.response :logger
         conn.adapter  Faraday.default_adapter
       end
     end
