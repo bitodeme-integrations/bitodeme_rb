@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bitodeme (0.2.7)
+    bitodeme (0.2.9)
       dotenv (~> 2.2, >= 2.2)
       faraday (~> 0.13)
       faraday_middleware (~> 0.12)
