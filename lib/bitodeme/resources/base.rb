@@ -11,10 +11,6 @@ module Bitodeme
       class << self
         private
 
-        def conn
-          Bitodeme::Conn.build
-        end
-
         def _find(collection, resource, id)
           item = get("/api/v1/#{collection}/#{id}").body.fetch(resource, {})
           new(item)
@@ -39,6 +35,10 @@ module Bitodeme
           query_params[:starts_at] = opts[:starts_at] if opts.key?(:starts_at)
           query_params[:ends_at]   = opts[:ends_at]   if opts.key?(:ends_at)
           query_params
+        end
+
+        def conn
+          Bitodeme::Conn.build
         end
       end
 

@@ -28,17 +28,17 @@ Withdrawal     = Bitodeme::Resource::Withdrawal
 module Bitodeme
   extend SingleForwardable
 
-  def_delegator :Currency, :all, :currencies
-  def_delegator :Deposit, :all, :deposits
-  def_delegator :Fund, :find, :fund
-  def_delegator :Fund, :all, :funds
-  def_delegator :FundAddress, :find, :fund_address
-  def_delegator :FundAddress, :all, :fund_addresses
+  def_delegator :Currency, :all, :list_currencies
+  def_delegator :Deposit, :all, :list_deposits
+  def_delegator :Fund, :find, :find_fund
+  def_delegator :Fund, :all, :list_funds
+  def_delegator :FundAddress, :find, :find_fund_address
+  def_delegator :FundAddress, :all, :list_fund_addresses
   def_delegator :Invoice, :build, :build_invoice
   def_delegator :Invoice, :create, :create_invoice
-  def_delegator :Invoice, :find, :invoice
-  def_delegator :TransactionLog, :find, :transaction_log
-  def_delegator :TransactionLog, :all, :transaction_logs
+  def_delegator :Invoice, :find, :find_invoice
+  def_delegator :TransactionLog, :find, :find_transaction_log
+  def_delegator :TransactionLog, :all, :list_transaction_logs
   def_delegator :Withdrawal, :build, :build_withdrawal
   def_delegator :Withdrawal, :create, :create_withdrawal
 

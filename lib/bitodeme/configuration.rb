@@ -7,7 +7,8 @@ module Bitodeme
 
     attr_reader :hostname,
                 :client_id,
-                :client_secret
+                :client_secret,
+                :logging
 
     def self.build
       $bitodeme_configuration ||= instance
@@ -19,6 +20,7 @@ module Bitodeme
       @hostname      = ENV['BITODEME_HOSTNAME']
       @client_id     = ENV['BITODEME_CLIENT_ID']
       @client_secret = ENV['BITODEME_CLIENT_SECRET']
+      @logging       = ENV['BITODEME_CLIENT_LOGGING']
     end
   end
 end

@@ -51,14 +51,12 @@ module Bitodeme
 
         private
 
-        def unauthorized_conn
+        def conn
           Bitodeme::UnauthorizedConn.build
         end
       end
 
       private
-
-      def_delegators :unauthorized_conn, :get
 
       def initialize(params)
         super(attrs: attrs, params: params)

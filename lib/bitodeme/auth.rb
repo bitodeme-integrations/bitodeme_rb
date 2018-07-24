@@ -24,10 +24,11 @@ module Bitodeme
 
     private
 
+    GRANT_TYPE = 'client_credentials'.freeze
     USER_AGENT = "Ruby / Bitodeme::Auth v#{Bitodeme::VERSION}".freeze
 
     def_delegators :Bitodeme, :config
-    def_delegators :config, :hostname, :client_id, :client_secret
+    def_delegators :config, :hostname, :client_id, :client_secret, :logging
 
     attr_reader :connection, :access_token, :expires_at
 
@@ -54,6 +55,7 @@ module Bitodeme
     def build_connection
       Faraday.new(faraday_opts) do |conn|
         conn.request  :json
+        conn.response :logger if logging
         conn.response :json, content_type: /\bjson$/
         conn.adapter  Faraday.default_adapter
       end
@@ -74,7 +76,7 @@ module Bitodeme
       {
         client_id:     client_id,
         client_secret: client_secret,
-        grant_type:    'client_credentials'
+        grant_type:    GRANT_TYPE
       }
     end
   end

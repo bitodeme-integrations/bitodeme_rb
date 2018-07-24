@@ -29,6 +29,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'vcr', '~> 4.0'
 
   spec.add_dependency 'dotenv', '~> 2.2', '>= 2.2'
-  spec.add_dependency 'faraday', '~> 0.13'
+  spec.add_dependency 'faraday', '~> 0.15.2'
   spec.add_dependency 'faraday_middleware', '~> 0.12'
 end

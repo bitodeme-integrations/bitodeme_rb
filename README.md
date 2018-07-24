@@ -24,6 +24,7 @@ Then set environment vars:
 export BITODEME_HOSTNAME=alpha.bitodeme.com; # Bitodeme Domain
 export BITODEME_CLIENT_ID=clientidentifier; # API key
 export BITODEME_CLIENT_SECRET=clientsecret; # API secret
+export BITODEME_CLIENT_LOGGING=true; # To enable logging (optional)
 ```
 
 ## Usage
@@ -32,17 +33,17 @@ export BITODEME_CLIENT_SECRET=clientsecret; # API secret
 
 Fetch all currencies
 ```ruby
-currencies = Bitodeme.currencies
+currencies = Bitodeme.list_currencies
 ```
 
 Fetch all updated currencies after given time in milli seconds
 ```ruby
-updated_currencies = Bitodeme.currencies(since: 1604131436476)
+updated_currencies = Bitodeme.list_currencies(since: 1604131436476)
 ```
 
 Pagination
 ```ruby
-last_10_currencies = Bitodeme.currencies(page: 1, per_page: 10)
+last_10_currencies = Bitodeme.list_currencies(page: 1, per_page: 10)
 ```
 
 ### Deposit (Unconfirmed deposits only)
@@ -50,38 +51,38 @@ last_10_currencies = Bitodeme.currencies(page: 1, per_page: 10)
 Fetch all unconfirmed deposits
 
 ```ruby
-deposits = Bitodeme.deposits
+deposits = Bitodeme.list_deposits
 ```
 
 ### Funds
 
 Fetch all funds
 ```ruby
-funds = Bitodeme.funds
+funds = Bitodeme.list_funds
 ```
 
 Fetch all updated funds after given time
 ```ruby
-updated_funds = Bitodeme.funds(since: 1513418293)
+updated_funds = Bitodeme.list_funds(since: 1513418293)
 ```
 
 ### FundAddress
 
 Fetch all fund addresses
 ```ruby
-fund_addresses = Bitodeme.fund_addresses
+fund_addresses = Bitodeme.list_fund_addresses
 ```
 
 Fetch all updated fund_addresses after given time
 ```ruby
-updated_fund_addresses = Bitodeme.fund_addresses(since: 1513418293)
+updated_fund_addresses = Bitodeme.list_fund_addresses(since: 1513418293)
 ```
 
 ### Invoice
 
 Fetch an invoice information
 ```ruby
-invoice = Bitodeme.invoice('id')
+invoice = Bitodeme.find_invoice('id')
 ```
 
 Build & create an invoice
@@ -109,12 +110,12 @@ invoice = Bitodeme.create_invoice(invoice)
 
 Fetch all transaction logs (deposits, withdrawals and fees)
 ```ruby
-transaction_logs = Bitodeme.transaction_logs
+transaction_logs = Bitodeme.list_transaction_logs
 ```
 
 Find a transaction_log
 ```ruby
-transaction_log = Bitodeme.transaction_log('id')
+transaction_log = Bitodeme.find_transaction_log('id')
 ```
 
 ### Withdrawal (Send money)
